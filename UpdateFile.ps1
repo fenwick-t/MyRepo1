@@ -9,7 +9,7 @@ $username = "fenwick-t";
 $repo = "MyRepo1";
 
 # headers parametres
-$token = "1de89fc96275fe1f76683502a1830fe881ea504f";
+$token = "8dcad74b9e059808ecc9113820a5fc0bde741bed";
 $headers = @{"Authorization" = "token $token"};
 
 # body parametres
@@ -36,4 +36,4 @@ $sha = $metadata.sha
 $parametres = @{"path" = $path; "message" = $message; "content" = $base64Content; "sha" = $sha; "branch" = $branch};
 $jsonBody = ConvertTo-Json $parametres;
 
-Invoke-WebRequest -Method Put -Uri "https://api.github.com/repos/$username/$repo/contents/$path" -Body $jsonBody -Headers $headersEnter file contents here
+Invoke-WebRequest -Method Put -Uri "https://api.github.com/repos/$username/$repo/contents/$path" -Body $jsonBody -Headers $headers

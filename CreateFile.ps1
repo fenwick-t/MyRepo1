@@ -8,7 +8,7 @@ $username = "fenwick-t";
 $repo = "MyRepo1";
 
 # headers parametres
-$token = "1de89fc96275fe1f76683502a1830fe881ea504f";
+$token = "8dcad74b9e059808ecc9113820a5fc0bde741bed";
 $headers = @{"Authorization" = "token $token"};
 
 # body parametres
@@ -20,7 +20,7 @@ $message = "create file (source control)";
 
 # content of the file (required, base64 encoded)
 #$base64Content = "bXkgbmV3IGZpbGUgY29udGVudHM=";
-$content = "I need to be encoded";
+$content = "Hello world!";
 $bytes = [System.Text.Encoding]::UTF8.GetBytes($content);
 $base64Content = [System.Convert]::ToBase64String($bytes);
 
