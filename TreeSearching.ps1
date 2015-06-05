@@ -67,7 +67,6 @@ workflow Sync-GithubRunbooks
             $Uri = "https://api.github.com/repos/" + $Username + "/" + $Repo + "/git/trees/" + $FolderSha;
 
                 $folderTreeData = Invoke-RestMethod -Method Get -Uri $Uri -Headers $headers;
-                $folderTreeData.tree
 
                 #todo: if data is truncated
                 foreach ($item in $folderTreeData.tree)
@@ -88,13 +87,13 @@ workflow Sync-GithubRunbooks
                             $content = $blobData.content;
                             $bytes = [System.Convert]::FromBase64String($content);
                             $runbookDefinition = [System.Text.Encoding]::UTF8.GetString($bytes);
-                            #Write-Output $runbookName
-                            #Write-Output $runbookDefinition  
+                            Write-Output $runbookName
+                            Write-Output $runbookDefinition  
                     }
                     elseif ($item.type -eq "tree")
                     {
-                        Write-Output $item
-                        $result = Sync-Folder -folderSha $item.path -OAuthToken $OAuthToken
+                        Write-Output "go to folder"
+                        $result = Sync-Folder.invoke -folderSha $item.path -OAuthToken $OAuthToken -Username $Uusername -Repo $Repo
                     }
                 }
             Return $result;
@@ -114,7 +113,6 @@ workflow Sync-GithubRunbooks
             $filename = $pathSplit[$pathSplit.Count - 1];
             $tempPathSplit = $filename.Split(".");
             $runbookName = $tempPathSplit[0];
-
             # get content of runbook
             $itemSha = $item.sha;
             $Uri = "https://api.github.com/repos/" + $username + "/" + $Repo + "/git/blobs/" + $itemSha;
@@ -132,4 +130,4 @@ workflow Sync-GithubRunbooks
     }#>
 }
 
-Sync-GithubRunbooks -Repo "MyRepo1" -OAuthToken "."
+Sync-GithubRunbooks -Repo "MyRepo1" -OAuthToken "." -Branch "tempBranch"
