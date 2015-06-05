@@ -1,4 +1,4 @@
 workflow rb2 
 {
-  get-date;
+  write-output "folder2";
 }
