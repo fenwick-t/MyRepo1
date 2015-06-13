@@ -32,6 +32,7 @@ workflow Sync-GithubRunbooks
 
     $runbookInfo = InlineScript
     {
+        #TODO: catch Invoke-RestMethod
         # recursively go through all nested folders and get runbooks data
         Function Sync-Folder 
         {
