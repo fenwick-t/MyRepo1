@@ -162,6 +162,7 @@ workflow Sync-GithubRunbooks
                     Write-Verbose "Web-request to Github failed. Retrying in $Using:DelayInSeconds second";
                     Start-Sleep $Using:DelayInSeconds
                     $retryCount++
+                    #TODO: do I need this?
                     $ErrorActionPreference = 'Continue';
                 }
                 else
