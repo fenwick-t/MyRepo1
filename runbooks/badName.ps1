@@ -1,4 +1,0 @@
-workflow a
-{
-  get-date
-}
