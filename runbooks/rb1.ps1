@@ -1,3 +1,2 @@
-workflow rb1 {
-  get-date;
-}
+workflow { Write-Verbose "Hello World" -verbose 
+ Get-Date}
