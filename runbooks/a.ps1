@@ -1,4 +1,4 @@
 workflow a
 {
-	Write-Output "a"
+	get-date
 }
