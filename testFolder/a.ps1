@@ -1,1 +1,4 @@
-
+workflow a
+{
+ get-date
+}
