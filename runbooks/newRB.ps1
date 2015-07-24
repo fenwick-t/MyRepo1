@@ -1,4 +1,4 @@
 workflow newRB
 {
-	get-date
+	write-output "hello world"
 }
