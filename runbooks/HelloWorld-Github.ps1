@@ -1,3 +1,3 @@
 workflow HelloWorld-Github {
-  Write-Output "Hello world!"
+  Write-Output "Hello Github!"
 }
