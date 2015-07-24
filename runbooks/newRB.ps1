@@ -1,0 +1,4 @@
+workflow newRB
+{
+	get-date
+}
